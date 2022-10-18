@@ -172,20 +172,20 @@ echo:
 echo:
 echo:       ______________________________________________________________
 echo:
-echo:                 Activation Methods:
+echo:                             激活方式:
 echo:
-echo:             [1] HWID        ^|  Windows           ^|   Permanent
-echo:             [2] KMS38       ^|  Windows           ^|   2038 Year
-echo:             [3] Online KMS  ^|  Windows / Office  ^|    180 Days
-echo:             __________________________________________________      
+echo:           [1] HWID        ^|  Windows           ^| 本地数字许可证永久激活
+echo:           [2] KMS38       ^|  Windows           ^| KMS模式激活2038年
+echo:           [3] Online KMS  ^|  Windows / Office  ^| 在线激活180天,可选续期
+echo:           __________________________________________________      
 echo:                                                                     
-echo:             [4] Check Activation Status [vbs]
-echo:             [5] Check Activation Status [wmi]
-echo:             __________________________________________________      
+echo:           [4] 检查激活状态 [vbs]
+echo:           [5] 检查激活状态 [wmi]
+echo:           __________________________________________________      
 echo:                                                                     
-echo:             [6] Extras                                               
-echo:             [7] Read Me
-echo:             [8] Exit                                   
+echo:           [6] 高级                                               
+echo:           [7] 关于
+echo:           [8] 关闭                                   
 echo:       ______________________________________________________________
 echo:
 call :_color2 %_White% "         " %_Green% "Enter a menu option in the Keyboard [1,2,3,4,5,6,7,8] :"
