@@ -55,7 +55,7 @@ if not %errorlevel%==0 (
 echo:
 echo Error: This is not a correct file. It has LF line ending issue.
 echo:
-echo Press any key to exit...
+echo 按任意键退出...
 pause >nul
 popd
 exit /b
@@ -188,7 +188,7 @@ echo:           [7] 关于
 echo:           [8] 关闭                                   
 echo:       ______________________________________________________________
 echo:
-call :_color2 %_White% "         " %_Green% "Enter a menu option in the Keyboard [1,2,3,4,5,6,7,8] :"
+call :_color2 %_White% "         " %_Green% "按下数字按键选择菜单选项 [1,2,3,4,5,6,7,8] :"
 choice /C:12345678 /N
 set _erl=%errorlevel%
 
@@ -216,19 +216,19 @@ echo:
 echo:
 echo:       ______________________________________________________________
 echo:
-echo:             [1] Activation Troubleshoot
+echo:             [1] 使用疑难解答
 echo:
-echo:             [2] Extract $OEM$ Folder
+echo:             [2] 提取$OEM$文件夹
 echo:
-echo:             [3] Insert Windows HWID Key
+echo:             [3] 输入Windows HWID密钥
 echo:
-echo:             [4] Change Windows Edition
+echo:             [4] 编辑Windows版本
 echo:             __________________________________________________      
 echo:                                                                     
-echo:             [5] Go to Main Menu
+echo:             [5] 返回主菜单
 echo:       ______________________________________________________________
 echo:
-call :_color2 %_White% "           " %_Green% "Enter a menu option in the Keyboard [1,2,3,4,5] :"
+call :_color2 %_White% "           " %_Green% "按下数字按键选择菜单选项 [1,2,3,4,5] :"
 choice /C:12345 /N
 set _erl=%errorlevel%
 
@@ -252,7 +252,7 @@ if not exist "!_desktop_!\" (
 echo Desktop location was not detected, aborting...
 echo _____________________________________________________
 echo:
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 goto Extras
 )
@@ -262,7 +262,7 @@ if exist "!_desktop_!\$OEM$\" (
 echo $OEM$ folder already exists on the Desktop.
 echo _____________________________________________________
 echo:
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 goto Extras
 )
@@ -289,10 +289,10 @@ echo:             [4] HWID  ^(Windows^) ^+ Online KMS ^(Office^)
 echo:             [5] KMS38 ^(Windows^) ^+ Online KMS ^(Office^)
 echo:             __________________________________________________      
 echo:                                                                   
-echo:             [6] Go Back
+echo:             [6] 返回
 echo:       ______________________________________________________________
 echo:  
-call :_color2 %_White% "           " %_Green% "Enter a menu option in the Keyboard:"
+call :_color2 %_White% "           " %_Green% "按下数字按键选择菜单选项:"
 choice /C:123456 /N
 set _erl=%errorlevel%
 
@@ -325,7 +325,7 @@ echo       extract from MAS separate files version.
 )
 echo ___________________________________________________________________
 echo:
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 goto Extras
 
@@ -573,7 +573,7 @@ if not %errorlevel%==0 (
 echo:
 echo Error: This is not a correct file. It has LF line ending issue.
 echo:
-echo Press any key to exit...
+echo 按任意键退出...
 pause >nul
 popd
 exit /b
@@ -636,7 +636,7 @@ set "_Yellow="Black" "Yellow""
 
 set "nceline=echo: &echo ==== ERROR ==== &echo:"
 set "eline=echo: &call :dk_color %Red% "==== ERROR ====" &echo:"
-if %~z0 GEQ 500000 (set "_exitmsg=Go back") else (set "_exitmsg=Exit")
+if %~z0 GEQ 500000 (set "_exitmsg=返回") else (set "_exitmsg=Exit")
 
 ::========================================================================================================================================
 
@@ -731,7 +731,7 @@ REM echo:
 REM echo                 [0] %_exitmsg%
 REM echo         ____________________________________________________________
 REM echo: 
-REM call :dk_color2 %_White% "              " %_Green% "Enter a menu option in the Keyboard:"
+REM call :dk_color2 %_White% "              " %_Green% "按下数字按键选择菜单选项:"
 REM choice /C:1GC0 /N
 REM set _el=!errorlevel!
 REM if !_el!==4  exit /b
@@ -758,7 +758,7 @@ REM call :dk_color2 %_White% " " %Green% "Note:"
 REM echo  Microsoft accepts both types of tickets and that's unlikely to change.
 REM call :dk_color2 %_White% " " %Green% "On a production system we suggest to use Downlevel [default] Method only."
 REM echo:
-REM call :dk_color %_Yellow% " Press any key to go back..."
+REM call :dk_color %_Yellow% " 按任意键返回..."
 REM pause >nul
 REM goto :dl_menu
 REM )
@@ -782,7 +782,7 @@ set _gent=0
 echo File '%Systemdrive%\GenuineTicket.xml' already exist.
 if %_unattended%==0 (
 echo:
-call :dk_color %_Yellow% "Press any key to go back..."
+call :dk_color %_Yellow% "按任意键返回..."
 pause >nul
 goto dl_menu
 ) else (
@@ -802,12 +802,12 @@ call :dk_checkperm
 if defined _perm if not %_gent%==1 (
 echo ___________________________________________________________________________________________
 echo:
-call :dk_color2 %_White% "     " %Green% "Checking: %winos% is Permanently Activated."
-call :dk_color2 %_White% "     " %Gray% "Activation is not required."
+call :dk_color2 %_White% "     " %Green% "状态: %winos% 已永久激活."
+call :dk_color2 %_White% "     " %Gray% "不需要激活."
 echo ___________________________________________________________________________________________
 if %_unattended%==1 goto dk_done
 echo:
-choice /C:12 /N /M ">    [1] Activate [2] %_exitmsg% : "
+choice /C:12 /N /M ">    [1] 激活 [2] %_exitmsg% : "
 if errorlevel 2 exit /b
 )
 cls
@@ -921,16 +921,16 @@ set activ=
 cls
 echo:
 for /f "skip=2 tokens=2*" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v PROCESSOR_ARCHITECTURE') do set arch=%%b
-echo Checking OS Info                        [%winos% ^| %winbuild% ^| %arch%]
+echo 检查系统信息                        [%winos% ^| %winbuild% ^| %arch%]
 
 set _intcon=
 if not %_gent%==1 (
 for /f "delims=[] tokens=2" %%# in ('ping -n 1 licensing.mp.microsoft.com') do if not [%%#]==[] set _intcon=1
 if defined _intcon (
-echo Checking Internet Connection            [Connected]
+echo 检查Internet连接            [连接]
 ) else (
 set error=1
-call :dk_color %Red% "Checking Internet Connection            [Failed To Connect licensing.mp.microsoft.com]"
+call :dk_color %Red% "检查Internet连接            [无法连接到 licensing.mp.microsoft.com]"
 )
 )
 
@@ -977,8 +977,8 @@ if defined serv_cste (set "serv_cste=!serv_cste! %%#") else (set "serv_cste=%%#"
 )
 )
 
-if defined serv_csts echo Enabling Disabled Services              [Successful] [%serv_csts%]
-if defined serv_cste call :dk_color %Red% "Enabling Disabled Services              [Failed] [%serv_cste%]"
+if defined serv_csts echo 启用禁用的服务              [完成] [%serv_csts%]
+if defined serv_cste call :dk_color %Red% "启用禁用的服务              [失败] [%serv_cste%]"
 
 if not "%regSKU%"=="%wmiSKU%" (
 set error=1
@@ -1015,9 +1015,9 @@ if !error_code! NEQ 0 set "error_code=[0x!=ExitCode!]"
 if !error_code! EQU 0 (
 call :dk_refresh
 call :dk_channel
-call echo Installing Generic Product Key          [%key%] [%%_channel%%] [Successful]
+call echo 安装通用产品密钥          [%key%] [%%_channel%%] [完成]
 ) else (
-call :dk_color %Red% "Installing Generic Product Key          [%key%] [Failed] !error_code!"
+call :dk_color %Red% "安装通用产品密钥          [%key%] [失败] !error_code!"
 )
 )
 
@@ -1039,7 +1039,7 @@ endlocal
 popd
 
 if not exist "%temp_%\gatherosstate.exe" (
-call :dk_color %Red% "Extracting Required Files to Temp       [%temp_%] [Failed]"
+call :dk_color %Red% "将所需文件解压缩到Temp       [%temp_%] [失败]"
 call :dk_color %Magenta% "Most likely Antivirus is interfering with the process"
 call :dk_color %Magenta% "Use MAS separate files version"
 goto :dl_final
@@ -1052,7 +1052,7 @@ call :dk_color %Red% "Extracted files verification failed. Aborting..."
 goto :dl_final
 )
 
-echo Extracting Required Files to Temp       [%temp_%] [Successful]
+echo 将所需文件解压缩到Temp       [%temp_%] [完成]
 
 ::========================================================================================================================================
 
@@ -1063,7 +1063,7 @@ pushd "%temp_%\"
 popd
 
 if not exist "%temp_%\gatherosstatemodified.exe" (
-call :dk_color %Red% "Creating Modified Gatherosstate         [Failed] Aborting..."
+call :dk_color %Red% "创建修改的Gatherosstate         [失败] Aborting..."
 goto :dl_final
 )
 
@@ -1072,10 +1072,10 @@ for /f "skip=1 tokens=* delims=" %%# in ('certutil -hashfile "%temp_%\gatherosst
 set "_hash=%_hash: =%"
 
 if /i not "%_hash%"=="3FCCB9C359EDB9527C9F5688683F8B3C5910E75D" (
-call :dk_color %Red% "Creating Modified Gatherosstate         [Failed] [Hash Not Matched] Aborting..."
+call :dk_color %Red% "创建修改的Gatherosstate         [失败] [Hash Not Matched] Aborting..."
 goto :dl_final
 ) else (
-echo Creating Modified Gatherosstate         [Successful]
+echo 创建修改的Gatherosstate         [完成]
 )
 
 ::========================================================================================================================================
@@ -1094,9 +1094,9 @@ rundll32 clipc.dll,ClipCleanUpState
 if exist "%ProgramData%\Microsoft\Windows\ClipSVC\*.dat" del /f /q "%ProgramData%\Microsoft\Windows\ClipSVC\*.dat" %nul%
 
 if exist "%ProgramData%\Microsoft\Windows\ClipSVC\tokens.dat" (
-call :dk_color %Red% "Cleaning ClipSVC Licences               [Failed]"
+call :dk_color %Red% "Cleaning ClipSVC Licences               [失败]"
 ) else (
-echo Cleaning ClipSVC Licences               [Successful]
+echo Cleaning ClipSVC Licences               [完成]
 )
 )
 
@@ -1115,19 +1115,19 @@ if %_lock%==1 (
 reg delete "%RegKey%" /f %nul% 
 
 reg query "%RegKey%" %nul% && (
-call :dk_color %Red% "Deleting a Volatile Registry            [Failed]"
+call :dk_color %Red% "Deleting a Volatile Registry            [失败]"
 call :dk_color %Magenta% "Restart the system, that will delete this registry key automatically"
 ) || (
-echo Deleting a Volatile Registry            [Successful]
+echo Deleting a Volatile Registry            [完成]
 )
 
 REM Clear HWID token related registry to fix activation incase if there is any corruption
 
 reg delete "%_ident%" /f %nul%
 reg query "%_ident%" %nul% && (
-call :dk_color %Red% "Deleting a Registry                     [Failed] [%_ident%]"
+call :dk_color %Red% "Deleting a Registry                     [失败] [%_ident%]"
 ) || (
-echo Deleting a Registry                     [Successful] [%_ident%]
+echo Deleting a Registry                     [完成] [%_ident%]
 )
 )
 
@@ -1155,20 +1155,20 @@ call :dk_refresh
 )
 
 %_noxml% (
-call :dk_color %Red% "Generating GenuineTicket.xml            [Failed] [%pfn%]"
+call :dk_color %Red% "生成GenuineTicket.xml            [失败] [%pfn%]"
 goto :dl_final
 )
 
 if %_lock%==1 (
 find /i "clientLockboxKey" "%temp_%\GenuineTicket.xml" >nul && (
-echo Generating GenuineTicket.xml            [Successful] [%pfn%]
+echo 生成GenuineTicket.xml            [完成] [%pfn%]
 ) || (
-call :dk_color %Red% "Generating GenuineTicket.xml            [Failed] [%pfn%]"
+call :dk_color %Red% "生成GenuineTicket.xml            [失败] [%pfn%]"
 call :dk_color %Red% "downlevelGTkey Ticket created. Aborting..."
 goto :dl_final
 )
 ) else (
-echo Generating GenuineTicket.xml            [Successful] [%pfn%]
+echo 生成GenuineTicket.xml            [完成] [%pfn%]
 )
 
 ::========================================================================================================================================
@@ -1179,9 +1179,9 @@ if %_gent%==1 (
 echo:
 copy /y /b "%temp_%\GenuineTicket.xml" "%Systemdrive%\GenuineTicket.xml" %nul%
 if not exist "%Systemdrive%\GenuineTicket.xml" (
-call :dk_color %Red% "Copying GenuineTicket.xml to %Systemdrive%\        [Failed]"
+call :dk_color %Red% "Copying GenuineTicket.xml to %Systemdrive%\        [失败]"
 ) else (
-call :dk_color %Green% "Copying GenuineTicket.xml to %Systemdrive%\        [Successful]"
+call :dk_color %Green% "Copying GenuineTicket.xml to %Systemdrive%\        [完成]"
 )
 goto :dl_final
 )
@@ -1198,7 +1198,7 @@ if not exist "%tdir%\" md "%tdir%\" %nul%
 copy /y /b "%temp_%\GenuineTicket.xml" "%tdir%\GenuineTicket.xml" %nul%
 
 if not exist "%tdir%\GenuineTicket.xml" (
-call :dk_color %Red% "Copying Ticket to ClipSVC Location      [Failed]"
+call :dk_color %Red% "Copying Ticket to ClipSVC Location      [失败]"
 )
 
 set "_xmlexist=if exist "%tdir%\GenuineTicket.xml""
@@ -1222,14 +1222,14 @@ clipup -v -o -altto %temp_%\
 call :dk_product
 
 echo:
-echo Activating...
+echo 激活中...
 echo:
 
 call :dk_act
 call :dk_checkperm
 if defined _perm (
 set activ=1
-call :dk_color %Green% "%winos% is permanently activated."
+call :dk_color %Green% "%winos% 已永久激活."
 goto :dl_final
 )
 
@@ -1250,7 +1250,7 @@ set "_unsup=call :dk_color %Magenta% "At the time of writing this, HWID Activati
 
 if defined _perm (
 set activ=1
-call :dk_color %Green% "%winos% is permanently activated."
+call :dk_color %Green% "%winos% 已永久激活."
 ) else (
 call :dk_color %Red% "Activation Failed %error_code%"
 if defined key if defined pkey %_unsup%
@@ -1266,9 +1266,9 @@ if not defined notworking if defined key if not defined pkey call :dk_color %Mag
 echo:
 if exist "%temp_%\.*" rmdir /s /q "%temp_%\" %nul%
 if exist "%temp_%\" (
-call :dk_color %Red% "Cleaning Temp Files                     [Failed]"
+call :dk_color %Red% "清理临时文件                     [失败]"
 ) else (
-echo Cleaning Temp Files                     [Successful]
+echo 清理临时文件                     [完成]
 )
 
 if %osSKU%==175 (
@@ -1389,7 +1389,7 @@ exit /b
 :dk_initial
 
 echo:
-echo Initializing...
+echo 初始化中...
 
 ::  Check and enable WinMgmt, sppsvc services if required
 
@@ -1494,7 +1494,7 @@ if defined checkerror if defined serv_e (set "serv_e=!serv_e!, %%#-!errorcode!")
 
 if defined serv_e (
 set error=1
-call :dk_color %Red% "Starting Services                       [Failed] [%serv_e%]"
+call :dk_color %Red% "Starting Services                       [失败] [%serv_e%]"
 )
 
 ::  Various error checks
@@ -1606,7 +1606,7 @@ exit /b
 
 echo:
 if %_unattended%==1 timeout /t 2 & exit /b
-call :dk_color %_Yellow% "Press any key to %_exitmsg%..."
+call :dk_color %_Yellow% "按任意键 %_exitmsg%..."
 pause >nul
 exit /b
 
@@ -3501,7 +3501,7 @@ if not %errorlevel%==0 (
 echo:
 echo Error: This is not a correct file. It has LF line ending issue.
 echo:
-echo Press any key to exit...
+echo 按任意键退出...
 pause >nul
 popd
 exit /b
@@ -3566,7 +3566,7 @@ set "_Yellow="Black" "Yellow""
 set _k38=
 set "nceline=echo: &echo ==== ERROR ==== &echo:"
 set "eline=echo: &call :dk_color %Red% "==== ERROR ====" &echo:"
-if %~z0 GEQ 500000 (set "_exitmsg=Go back") else (set "_exitmsg=Exit")
+if %~z0 GEQ 500000 (set "_exitmsg=返回") else (set "_exitmsg=Exit")
 set "specific_kms=SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\55c92734-d682-4d71-983e-d6ec3f16059f"
 
 ::========================================================================================================================================
@@ -3641,17 +3641,17 @@ echo:
 echo:
 echo         ____________________________________________________________
 echo:
-echo                 [1] KMS38 Activation
+echo                 [1] KMS38 激活
 echo:
-echo                 [2] KMS38 Activation ^+ Protection
+echo                 [2] KMS38 激活 ^+ 保护
 echo                 ____________________________________________
 echo:
-echo                 [3] Remove Protection
+echo                 [3] 移除保护
 echo:
 echo                 [4] %_exitmsg%
 echo         ____________________________________________________________
 echo: 
-call :dk_color2 %_White% "              " %_Green% "Enter a menu option in the Keyboard [1,2,3,4]"
+call :dk_color2 %_White% "              " %_Green% "按下数字按键选择菜单选项 [1,2,3,4]"
 choice /C:1234 /N
 set _el=!errorlevel!
 if !_el!==4  exit /b
@@ -3659,17 +3659,17 @@ if !_el!==3  goto :k_uninstall
 if !_el!==2  (
 cls
 echo:
-call :dk_color2 %_White% " " %_Green% "KMS38 Protection:"
+call :dk_color2 %_White% " " %_Green% "KMS38保护:"
 echo:
-echo  It stops 180 days KMS Activation from replacing KMS38 activation.
-echo  Protection requires permission altering of a registry key.
+echo  它将在180天内停止KMS激活以替换KMS38激活.
+echo  保护需要更改注册表项的权限.
 echo:
-echo  If you are going to use KMS_VL_ALL or MAS's KMS activation for Office,
-echo  then you don't need to enable this protection.  
-echo  For more info, check readme.
+echo  如果您要为Office使用KMS_VL_ALL或MAS的KMS激活,
+echo  那么你就不需要启用这种保护.  
+echo  有关更多信息，请查看自述文件.
 echo:
 echo:
-choice /C:12 /N /M "> [1] Continue [2] Go back : "
+choice /C:12 /N /M "> [1] 继续 [2] 返回 : "
 if errorlevel 2 goto :k_menu
 if errorlevel 1 (set _prot=1&goto :k_menu2)
 )
@@ -3692,7 +3692,7 @@ set _gent=0
 echo File '%Systemdrive%\GenuineTicket.xml' already exist.
 if %_unattended%==0 (
 echo:
-call :dk_color %_Yellow% "Press any key to go back..."
+call :dk_color %_Yellow% "按任意键返回..."
 pause >nul
 goto k_menu
 ) else (
@@ -3712,12 +3712,12 @@ call :dk_checkperm
 if defined _perm if not %_gent%==1 (
 echo ___________________________________________________________________________________________
 echo:
-call :dk_color2 %_White% "     " %Green% "Checking: %winos% is Permanently Activated."
-call :dk_color2 %_White% "     " %Gray% "Activation is not required."
+call :dk_color2 %_White% "     " %Green% "Checking: %winos% 已永久激活."
+call :dk_color2 %_White% "     " %Gray% "不需要激活."
 echo ___________________________________________________________________________________________
 if %_unattended%==1 goto dk_done
 echo:
-choice /C:12 /N /M ">    [1] Activate [2] %_exitmsg% : "
+choice /C:12 /N /M ">    [1] 激活 [2] %_exitmsg% : "
 if errorlevel 2 exit /b
 )
 cls
@@ -3847,7 +3847,7 @@ set activ=
 cls
 echo:
 for /f "skip=2 tokens=2*" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v PROCESSOR_ARCHITECTURE') do set arch=%%b
-echo Checking OS Info                        [%winos% ^| %winbuild% ^| %arch%]
+echo 检查系统信息                        [%winos% ^| %winbuild% ^| %arch%]
 
 ::========================================================================================================================================
 
@@ -3886,8 +3886,8 @@ if defined serv_cste (set "serv_cste=!serv_cste! %%#") else (set "serv_cste=%%#"
 )
 )
 
-if defined serv_csts echo Enabling Disabled Services              [Successful] [%serv_csts%]
-if defined serv_cste call :dk_color %Red% "Enabling Disabled Services              [Failed] [%serv_cste%]"
+if defined serv_csts echo 启用禁用的服务              [完成] [%serv_csts%]
+if defined serv_cste call :dk_color %Red% "启用禁用的服务              [失败] [%serv_cste%]"
 
 if not "%regSKU%"=="%wmiSKU%" (
 set error=1
@@ -3922,9 +3922,9 @@ if !error_code! NEQ 0 set "error_code=[0x!=ExitCode!]"
 
 if !error_code! EQU 0 (
 call :dk_refresh
-echo Installing KMS Client Setup Key         [%key%] [Successful]
+echo 正在安装KMS客户端密钥         [%key%] [完成]
 ) else (
-call :dk_color %Red% "Installing KMS Client Setup Key         [%key%] [Failed] !error_code!"
+call :dk_color %Red% "正在安装KMS客户端安装密钥         [%key%] [失败] !error_code!"
 )
 )
 
@@ -3937,7 +3937,7 @@ if %_wmic% EQU 1 for /f "tokens=2 delims==" %%a in ('"wmic path SoftwareLicensin
 if %_wmic% EQU 0 for /f "tokens=2 delims==" %%a in ('%psc% "(([WMISEARCHER]'SELECT ID FROM SoftwareLicensingProduct WHERE ApplicationID=''55c92734-d682-4d71-983e-d6ec3f16059f'' AND Description like ''%%KMSCLIENT%%'' AND PartialProductKey IS NOT NULL').Get()).ID | %% {echo ('ID='+$_)}" 2^>nul') do call set "app=%%a"
 
 if not defined app (
-call :dk_color %Red% "Checking Activation ID                  [Failed]"
+call :dk_color %Red% "Checking Activation ID                  [失败]"
 )
 
 ::========================================================================================================================================
@@ -3963,14 +3963,14 @@ call :regown "HKLM\%specific_kms%"
 %nul% reg add "HKLM\%specific_kms%\%app%" /f /v KeyManagementServicePort /t REG_SZ /d "1688" || set k_error=1
 
 if not defined k_error (
-echo Adding Specific KMS Host                [LocalHost 127.0.0.2] [Successful]
+echo 添加特定KMS主机                [LocalHost 127.0.0.2] [完成]
 ) else (
-call :dk_color %Red% "Adding Specific KMS Host                [LocalHost 127.0.0.2] [Failed]"
+call :dk_color %Red% "添加特定KMS主机                [LocalHost 127.0.0.2] [失败]"
 )
 )
 
 if not %_gent%==1 if not defined app (
-call :dk_color %Red% "Adding Specific KMS Host                [Skipped] [Activation ID Not Found]"
+call :dk_color %Red% "添加特定KMS主机                [Skipped] [Activation ID Not Found]"
 )
 
 ::========================================================================================================================================
@@ -3991,7 +3991,7 @@ endlocal
 popd
 
 if not exist "%temp_%\gatherosstate.exe" (
-call :dk_color %Red% "Extracting Required Files to Temp       [%temp_%] [Failed]"
+call :dk_color %Red% "将所需文件解压缩到Temp       [%temp_%] [失败]"
 call :dk_color %Magenta% "Most likely Antivirus is interfering with the process"
 call :dk_color %Magenta% "Use MAS separate files version"
 goto :k_final
@@ -4004,7 +4004,7 @@ call :dk_color %Red% "Extracted files verification failed. Aborting..."
 goto :k_final
 )
 
-echo Extracting Required Files to Temp       [%temp_%] [Successful]
+echo 将所需文件解压缩到Temp       [%temp_%] [完成]
 
 ::========================================================================================================================================
 
@@ -4015,7 +4015,7 @@ pushd "%temp_%\"
 popd
 
 if not exist "%temp_%\gatherosstatemodified.exe" (
-call :dk_color %Red% "Creating Modified Gatherosstate         [Failed] Aborting..."
+call :dk_color %Red% "创建修改的Gatherosstate         [失败] Aborting..."
 goto :k_final
 )
 
@@ -4024,10 +4024,10 @@ for /f "skip=1 tokens=* delims=" %%# in ('certutil -hashfile "%temp_%\gatherosst
 set "_hash=%_hash: =%"
 
 if /i not "%_hash%"=="3FCCB9C359EDB9527C9F5688683F8B3C5910E75D" (
-call :dk_color %Red% "Creating Modified Gatherosstate         [Failed] [Hash Not Matched] Aborting..."
+call :dk_color %Red% "创建修改的Gatherosstate         [失败] [Hash Not Matched] Aborting..."
 goto :k_final
 ) else (
-echo Creating Modified Gatherosstate         [Successful]
+echo 创建修改的Gatherosstate         [完成]
 )
 
 ::========================================================================================================================================
@@ -4043,10 +4043,10 @@ set "_noxml=if not exist "%temp_%\GenuineTicket.xml""
 %_noxml% timeout /t 3 %nul%
 
 %_noxml% (
-call :dk_color %Red% "Generating GenuineTicket.xml            [Failed] Aborting..."
+call :dk_color %Red% "生成GenuineTicket.xml            [失败] Aborting..."
 goto :k_final
 ) else (
-echo Generating GenuineTicket.xml            [Successful]
+echo 生成GenuineTicket.xml            [完成]
 )
 
 ::========================================================================================================================================
@@ -4057,9 +4057,9 @@ if %_gent%==1 (
 echo:
 copy /y /b "%temp_%\GenuineTicket.xml" "%Systemdrive%\GenuineTicket.xml" %nul%
 if not exist "%Systemdrive%\GenuineTicket.xml" (
-call :dk_color %Red% "Copying GenuineTicket.xml to %Systemdrive%\        [Failed]"
+call :dk_color %Red% "Copying GenuineTicket.xml to %Systemdrive%\        [失败]"
 ) else (
-call :dk_color %Green% "Copying GenuineTicket.xml to %Systemdrive%\        [Successful]"
+call :dk_color %Green% "Copying GenuineTicket.xml to %Systemdrive%\        [完成]"
 )
 goto :k_final
 )
@@ -4076,7 +4076,7 @@ if not exist "%tdir%\" md "%tdir%\" %nul%
 copy /y /b "%temp_%\GenuineTicket.xml" "%tdir%\GenuineTicket.xml" %nul%
 
 if not exist "%tdir%\GenuineTicket.xml" (
-call :dk_color %Red% "Copying Ticket to ClipSVC Location      [Failed]"
+call :dk_color %Red% "Copying Ticket to ClipSVC Location      [失败]"
 )
 
 set "_xmlexist=if exist "%tdir%\GenuineTicket.xml""
@@ -4103,7 +4103,7 @@ call :dk_color %Red% "Installing GenuineTicket.xml            [Failed With ClipS
 call :dk_product
 
 echo:
-echo Activating...
+echo 激活中...
 echo:
 
 call :k_checkexp
@@ -4119,9 +4119,9 @@ if %_wmic% EQU 1 wmic path SoftwareLicensingProduct where ID='%app%' call ReArms
 if %_wmic% EQU 0 %psc% "$null=([WMI]'SoftwareLicensingProduct=''%app%''').ReArmsku()" %nul%
 
 if %errorlevel%==0 (
-echo Applying SKU-ID Rearm                   [Successful]
+echo Applying SKU-ID Rearm                   [完成]
 ) else (
-call :dk_color %Red% "Applying SKU-ID Rearm                   [Failed]"
+call :dk_color %Red% "Applying SKU-ID Rearm                   [失败]"
 )
 
 echo:
@@ -4163,9 +4163,9 @@ if defined regadd if not defined _k38 (
 %nul% reg query "HKLM\%specific_kms%" && set k_error=1
 %nul% reg query "HKU\S-1-5-20\%specific_kms%" && set k_error=1
 if not defined k_error (
-echo Removing The Added Specific KMS Host    [Successful]
+echo Removing The Added Specific KMS Host    [完成]
 ) else (
-call :dk_color %Red% "Removing The Added Specific KMS Host    [Failed]"
+call :dk_color %Red% "Removing The Added Specific KMS Host    [失败]"
 )
 )
 
@@ -4175,9 +4175,9 @@ if defined regadd if defined _k38 if %_prot%==1 (
 %nul% call :regown "HKLM\%specific_kms%" "" S-1-5-32-544 "" Deny "SetValue,Delete"
 %nul% reg delete "HKLM\%specific_kms%" /f
 %nul% reg query "HKLM\%specific_kms%" && (
-call :dk_color %Gray% "Locking a Registry To Protect KMS38     [Successful]"
+call :dk_color %Gray% "锁定注册表以保护KMS38     [完成]"
 ) || (
-call :dk_color %Red% "Locking a Registry To Protect KMS38     [Failed]"
+call :dk_color %Red% "锁定注册表以保护KMS38     [失败]"
 )
 )
 
@@ -4186,9 +4186,9 @@ call :dk_color %Red% "Locking a Registry To Protect KMS38     [Failed]"
 if exist "%temp_%\.*" rmdir /s /q "%temp_%\" %nul%
 
 if exist "%temp_%\" (
-call :dk_color %Red% "Cleaning Temp Files                     [Failed]"
+call :dk_color %Red% "清理临时文件                     [失败]"
 ) else (
-echo Cleaning Temp Files                     [Successful]
+echo 清理临时文件                     [完成]
 )
 
 if %osSKU%==175 (
@@ -4230,9 +4230,9 @@ REM REM  Thanks to @mspaintmsi for informing this command info
 REM rundll32 clipc.dll,ClipCleanUpState
 
 REM if exist "%ProgramData%\Microsoft\Windows\ClipSVC\tokens.dat" (
-REM call :dk_color %Red% "Cleaning ClipSVC Licences               [Failed]"
+REM call :dk_color %Red% "Cleaning ClipSVC Licences               [失败]"
 REM ) else (
-REM echo Cleaning ClipSVC Licences               [Successful]
+REM echo Cleaning ClipSVC Licences               [完成]
 REM )
 
 REM REM  Below registry key (Volatile & Protected) gets created after the ClipSVC License cleanup command, and gets automatically deleted after 
@@ -4242,19 +4242,19 @@ REM call :regown "%RegKey%" %nul%
 REM reg delete "%RegKey%" /f %nul%
 
 REM reg query "%RegKey%" %nul% && (
-REM call :dk_color %Red% "Deleting a Volatile Registry            [Failed]"
+REM call :dk_color %Red% "Deleting a Volatile Registry            [失败]"
 REM call :dk_color %Magenta% "Restart the system, that will delete this registry key automatically"
 REM ) || (
-REM echo Deleting a Volatile Registry            [Successful]
+REM echo Deleting a Volatile Registry            [完成]
 REM )
 
 REM REM Clear HWID token related registry to fix activation incase if there is any corruption
 
 REM reg delete "%_ident%" /f %nul%
 REM reg query "%_ident%" %nul% && (
-REM call :dk_color %Red% "Deleting a Registry                     [Failed] [%_ident%]"
+REM call :dk_color %Red% "Deleting a Registry                     [失败] [%_ident%]"
 REM ) || (
-REM echo Deleting a Registry                     [Successful] [%_ident%]
+REM echo Deleting a Registry                     [完成] [%_ident%]
 REM )
 
 REM for %%# in (ClipSVC wlidsvc LicenseManager sppsvc) do (net stop %%# /y %nul% & net start %%# /y %nul%)
@@ -4274,12 +4274,12 @@ set exist_=1
 )
 
 %nul% reg query "HKLM\%specific_kms%" && (
-call :dk_color %Red% "Removing Specific KMS Host              [Failed]"
+call :dk_color %Red% "正在删除特定KMS主机              [失败]"
 ) || (
 if defined exist_ (
-echo Removing Specific KMS Host              [Successful]
+echo 正在删除特定KMS主机              [完成]
 ) else (
-echo Removing Specific KMS Host              [Already Removed]
+echo 正在删除特定KMS主机              [Already Removed]
 )
 )
 
@@ -4321,7 +4321,7 @@ foreach($n in $subkeys){Own1 "$k\$n"}}}};Own1 $rk[1];if($env:VO){get-acl Registr
 
 set xpr=
 for /f "tokens=* delims=" %%# in ('%psc% "$([DateTime]::Now.addMinutes(%gpr%)).ToString('yyyy-MM-dd HH:mm:ss')" 2^>nul') do set "xpr=%%#"
-call :dk_color %Green% "%winos% is activated till !xpr!"
+call :dk_color %Green% "%winos% 激活至 !xpr!"
 exit /b
 
 ::  Check remaining KMS activation grace period
@@ -4405,7 +4405,7 @@ exit /b
 :dk_initial
 
 echo:
-echo Initializing...
+echo 初始化中...
 
 ::  Check and enable WinMgmt, sppsvc services if required
 
@@ -4510,7 +4510,7 @@ if defined checkerror if defined serv_e (set "serv_e=!serv_e!, %%#-!errorcode!")
 
 if defined serv_e (
 set error=1
-call :dk_color %Red% "Starting Services                       [Failed] [%serv_e%]"
+call :dk_color %Red% "Starting Services                       [失败] [%serv_e%]"
 )
 
 ::  Various error checks
@@ -4622,7 +4622,7 @@ exit /b
 
 echo:
 if %_unattended%==1 timeout /t 2 & exit /b
-call :dk_color %_Yellow% "Press any key to %_exitmsg%..."
+call :dk_color %_Yellow% "按任意键 %_exitmsg%..."
 pause >nul
 exit /b
 
@@ -4872,7 +4872,7 @@ if not %errorlevel%==0 (
 echo:
 echo Error: This is not a correct file. It has LF line ending issue.
 echo:
-echo Press any key to exit...
+echo 按任意键退出...
 pause >nul
 popd
 exit /b
@@ -5026,7 +5026,7 @@ goto Done
 
 ::========================================================================================================================================
 
-if %~z0 GEQ 500000 (set "_exitmsg=Go back") else (set "_exitmsg=Exit")
+if %~z0 GEQ 500000 (set "_exitmsg=返回") else (set "_exitmsg=Exit")
 
 ::  Check not x86 Windows
 
@@ -5077,18 +5077,18 @@ echo.
 echo.       ______________________________________________________________
 echo.
 if %_Debug%==0 (
-echo.              [1] Activate - Windows
-echo.              [2] Activate - Office
-echo.              [3] Activate - All
+echo.              [1] 激活 - Windows
+echo.              [2] 激活 - Office
+echo.              [3] 激活 - 所有
 ) else (
-call :_color2 %_White% "              [1] Activate - Windows        " %_Red% "[Debug Mode]"
-call :_color2 %_White% "              [2] Activate - Office         " %_Red% "[Debug Mode]"
-call :_color2 %_White% "              [3] Activate - All            " %_Red% "[Debug Mode]"
+call :_color2 %_White% "              [1] 激活 - Windows        " %_Red% "[调试模式]"
+call :_color2 %_White% "              [2] 激活 - Office         " %_Red% "[调试模式]"
+call :_color2 %_White% "              [3] 激活 - 所有            " %_Red% "[调试模式]"
 )
 echo.
-if defined _tskinstalled call :_color2 %_White% "              [4] Install Auto-Renewal      " %_Green% "[Installed]"
-if defined _oldtsk       call :_color2 %_White% "              [4] Install Auto-Renewal      " %_Red% "[Old Installed]"
-if not defined _tskinstalled if not defined _oldtsk echo.              [4] Install Auto-Renewal
+if defined _tskinstalled call :_color2 %_White% "              [4] 安装自动续订      " %_Green% "[安装]"
+if defined _oldtsk       call :_color2 %_White% "              [4] 安装自动续订      " %_Red% "[旧版 安装]"
+if not defined _tskinstalled if not defined _oldtsk echo.              [4] 安装自动续订
 echo.              [5] Uninstall
 echo.              _______________________________________________  
 echo.
@@ -5098,7 +5098,7 @@ echo.
 echo.              [7] %_exitmsg%
 echo.       ______________________________________________________________
 echo.
-call :_color2 %_White% "           " %_Green% "Enter a menu option in the Keyboard [1,2,3,4,5,6,7]"
+call :_color2 %_White% "           " %_Green% "按下数字按键选择菜单选项 [1,2,3,4,5,6,7]"
 choice /C:1234567 /N
 set _el=%errorlevel%
 
@@ -5118,7 +5118,7 @@ goto _KMS_Menu
 if defined _unattended exit /b
 
 echo.
-echo Press any key to exit...
+echo 按任意键退出...
 pause >nul
 exit /b
 
@@ -5167,19 +5167,19 @@ set _UNC=0
 if "%_work:~0,2%"=="\\" set _UNC=1
 for /f "skip=2 tokens=2*" %%a in ('reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v Desktop') do call set "_dsk=%%b"
 if exist "%PUBLIC%\Desktop\desktop.ini" set "_dsk=%PUBLIC%\Desktop"
-set "_mO21a=Detected Office 2021 C2R Retail is activated"
-set "_mO19a=Detected Office 2019 C2R Retail is activated"
-set "_mO16a=Detected Office 2016 C2R Retail is activated"
-set "_mO15a=Detected Office 2013 C2R Retail is activated"
-set "_mO21c=Detected Office 2021 C2R Retail could not be converted to Volume"
-set "_mO19c=Detected Office 2019 C2R Retail could not be converted to Volume"
-set "_mO16c=Detected Office 2016 C2R Retail could not be converted to Volume"
-set "_mO15c=Detected Office 2013 C2R Retail could not be converted to Volume"
-set "_mO14c=Detected Office 2010 C2R Retail is not supported by KMS_VL_ALL"
-set "_mO14m=Detected Office 2010 MSI Retail is not supported by KMS_VL_ALL"
-set "_mO15m=Detected Office 2013 MSI Retail is not supported by KMS_VL_ALL"
-set "_mO16m=Detected Office 2016 MSI Retail is not supported by KMS_VL_ALL"
-set "_mOuwp=Detected Office 365/2016 UWP is not supported by KMS_VL_ALL"
+set "_mO21a=检测到的 Office 2021 C2R 零售版已激活"
+set "_mO19a=检测到的 Office 2019 C2R 零售版已激活"
+set "_mO16a=检测到的 Office 2016 C2R 零售版已激活"
+set "_mO15a=检测到的 Office 2013 C2R 零售版已激活"
+set "_mO21c=检测到的 Office 2021 C2R 零售版无法转换为批量授权版"
+set "_mO19c=检测到的 Office 2019 C2R 零售版无法转换为批量授权版"
+set "_mO16c=检测到的 Office 2016 C2R 零售版无法转换为批量授权版"
+set "_mO15c=检测到的 Office 2013 C2R 零售版无法转换为批量授权版"
+set "_mO14c=检测到的 Office 2010 C2R 零售版 KMS_VL_ALL不支持"
+set "_mO14m=检测到的 Office 2010 MSI 零售版 KMS_VL_ALL不支持"
+set "_mO15m=检测到的 Office 2013 MSI 零售版 KMS_VL_ALL不支持"
+set "_mO16m=检测到的 Office 2016 MSI 零售版 KMS_VL_ALL不支持"
+set "_mOuwp=检测到的 Office 365/2016 UWP版 KMS_VL_ALL不支持"
 set DO16Ids=ProPlus,Standard,Access,SkypeforBusiness,Excel,Outlook,PowerPoint,Publisher,Word
 set LV16Ids=Mondo,ProPlus,ProjectPro,VisioPro,Standard,ProjectStd,VisioStd,Access,SkypeforBusiness,OneNote,Excel,Outlook,PowerPoint,Publisher,Word
 set LR16Ids=%LV16Ids%,Professional,HomeBusiness,HomeStudent,O365Business,O365SmallBusPrem,O365HomePrem,O365EduCloud
@@ -5254,7 +5254,7 @@ if %_Debug% EQU 0 (
 @echo off
 if defined _gui if %_Debug%==1 (
 echo.
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 )
@@ -5268,7 +5268,7 @@ set act_failed=0
 set /a act_attempt=0
 
 echo.
-echo Initializing...
+echo 初始化中...
 
 :: Check Internet connection. Works even if ICMP echo is disabled.
 
@@ -5295,7 +5295,7 @@ call :_color %_Red% "Internet is not connected, continuing the process anyway."
 %eline%
 echo Internet is not connected.
 echo:
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 )
@@ -5423,7 +5423,7 @@ if %_O14MSI% EQU 1 set "_C14R="
 set S_OK=1
 call :RunSPP
 if %ActOffice% NEQ 0 call :RunOSPP
-if %ActOffice% EQU 0 (echo.&echo Office activation is OFF...)
+if %ActOffice% EQU 0 (echo.&echo Office 激活已关闭...)
 
 if exist "!_temp!\crv*.txt" del /f /q "!_temp!\crv*.txt"
 if exist "!_temp!\*chk.txt" del /f /q "!_temp!\*chk.txt"
@@ -5452,7 +5452,7 @@ set "_qr=%_zz1% %spp% %_zz2% %_zz5%Description like '%%KMSCLIENT%%' %_zz6% %_zz3
 %_qr% %_Nul2% | findstr /i Windows %_Nul1% && (set WinVL=1)
 if %WinVL% EQU 0 (
 if %ActWindows% EQU 0 (
-  echo.&echo Windows activation is OFF...
+  echo.&echo Windows激活已关闭...
   ) else (
   if %SSppHook% EQU 0 (
     echo.&echo %_winos% %nKMS%
@@ -5497,7 +5497,7 @@ set "_qr=%_zz7% %spp% %_zz2% %_zz5%ApplicationID='%_wApp%' and Description like 
 if %W1nd0ws% EQU 1 if %ActWindows% NEQ 0 for /f "tokens=2 delims==" %%G in ('%_qr%') do (set app=%%G&call :sppchkwin)
 :: set "_qr=%_zz7% %spp% %_zz2% %_zz5%ApplicationID='%_wApp%' and Description like '%%KMSCLIENT%%' %addon% %_zz6% %_zz3% ID %_zz8%"
 :: if %ESU_EDT% EQU 1 if %ActWindows% NEQ 0 for /f "tokens=2 delims==" %%G in ('%_qr%') do (set app=%%G&call :esuchk)
-if %W1nd0ws% EQU 1 if %ActWindows% EQU 0 (echo.&echo Windows activation is OFF...)
+if %W1nd0ws% EQU 1 if %ActWindows% EQU 0 (echo.&echo Windows激活已关闭...)
 set "_qr=%_zz7% %spp% %_zz2% %_zz5%ApplicationID='%_oApp%' and Description like '%%KMSCLIENT%%' %_zz6% %_zz3% ID %_zz8%"
 if %Off1ce% EQU 1 if %ActOffice% NEQ 0 for /f "tokens=2 delims==" %%G in ('%_qr%') do (set app=%%G&call :sppchkoff 1)
 reg delete "HKLM\%SPPk%" /f /v DisableDnsPublishing %_Null%
@@ -5513,10 +5513,10 @@ if not %xOS%==x86 dir /b "%ProgramW6432%\WindowsApps\Microsoft.Office.Desktop*" 
 rem nothing installed
 if %loc_off21% EQU 0 if %loc_off19% EQU 0 if %loc_off16% EQU 0 if %loc_off15% EQU 0 (
 if %winbuild% GEQ 9200 (
-  if %OffUWP% EQU 0 (echo.&echo No Installed Office 2013-2021 Product Detected...) else (echo.&echo %_mOuwp%)
+  if %OffUWP% EQU 0 (echo.&echo 未检测到安装的Office 2013-2021产品...) else (echo.&echo %_mOuwp%)
   exit /b
   )
-if %winbuild% LSS 9200 (if %loc_off14% EQU 0 (echo.&echo No Installed Office %aword% Product Detected...&exit /b))
+if %winbuild% LSS 9200 (if %loc_off14% EQU 0 (echo.&echo 未检测到安装的Office %aword%产品...&exit /b))
 )
 set sub_O365=0
 set sub_proj=0
@@ -5769,8 +5769,8 @@ cscript //nologo "!_temp!\slmgr.vbs" /xpr %_Nul2% | findstr /i "permanently" %_N
 )
 set "_qr=%_zz7% %spp% %_zz2% %_zz5%ApplicationID='%_wApp%' and LicenseStatus='1' %adoff% %_zz6% %_zz3% Name %_zz8%"
 if %WinPerm% EQU 1 (
-for /f "tokens=2 delims==" %%x in ('%_qr%') do echo Checking: %%x
-echo Product is Permanently Activated.
+for /f "tokens=2 delims==" %%x in ('%_qr%') do echo 正在检测: %%x
+echo 产品永久激活.
 exit /b
 )
 call :insKey
@@ -5824,8 +5824,8 @@ set aC2R19=0
 set aC2R16=0
 set aC2R15=0
 if %winbuild% LSS 9200 (set "aword=2010-2021") else (set "aword=2010")
-if %OsppHook% EQU 0 (echo.&echo No Installed Office %aword% Product Detected...&exit /b)
-if %winbuild% GEQ 9200 if %loc_off14% EQU 0 (echo.&echo No Installed Office %aword% Product Detected...&exit /b)
+if %OsppHook% EQU 0 (echo.&echo 未检测到安装的 Office %aword%产品...&exit /b)
+if %winbuild% GEQ 9200 if %loc_off14% EQU 0 (echo.&echo 未检测到安装的 Office %aword%产品...&exit /b)
 set err_offsvc=0
 net start osppsvc /y %_Nul3% || (
 sc start osppsvc %_Nul3%
@@ -5873,17 +5873,17 @@ set "_qr=%_zz7% %spp% %_zz2% %_zz5%LicenseFamily='Office%~5'%_zz6% %_zz3% Licens
 if /i not "%~5"=="" for /f "tokens=2 delims==" %%A in ('%_qr% %_Nul6%') do set /a ls3=%%A
 if "%ls3%"=="1" (
 echo Checking: %~6
-echo Product is Permanently Activated.
+echo 产品已永久激活.
 exit /b
 )
 if "%ls2%"=="1" (
 echo Checking: %~4
-echo Product is Permanently Activated.
+echo 产品已永久激活.
 exit /b
 )
 if "%ls%"=="1" (
 echo Checking: %~2
-echo Product is Permanently Activated.
+echo 产品已永久激活.
 exit /b
 )
 call :insKey
@@ -7791,20 +7791,20 @@ echo.
 if not defined _tskinstalled if not defined _oldtsk (
 if %winbuild% GEQ 9200 (
 call :leavenonexistentkms %nul%
-echo Keeping the non-existent IP address 10.0.0.10 as KMS Server.
+echo 将不存在的 IP 地址 10.0.0.10 保留为 KMS 服务器.
 ) else (
 call :Clear-KMS-Cache
 )
 )
 
-if defined _tskinstalled echo Renewal Task found, keeping the online KMS IP in the system.
-if defined _oldtsk echo Renewal Task found, keeping the online KMS IP in the system.
+if defined _tskinstalled echo 找到续订任务,将在线KMS IP保留在系统中.
+if defined _oldtsk echo 找到续订任务,将在线KMS IP保留在系统中.
 
 if defined _unattended exit /b
 
 echo ___________________________________________________________________
 echo.
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 
@@ -7912,7 +7912,7 @@ set error_=9
 echo Failed to completely clear KMS Cache.
 reg query "HKLM\%SPPk%\%_wApp%" /s 2>nul | findstr /i "127.0.0.2" >nul && echo Most likely, the KMS38 activation is locked.
 ) || (
-echo Cleared KMS Cache successfully.
+echo 已成功清除 KMS 缓存.
 )
 exit /b
 
@@ -7964,10 +7964,10 @@ for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Microsoft\Office\Cli
 for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Microsoft\Office\ClickToRun /v InstallPath /reg:32" 2^>nul') do if exist "%%b\root\Licenses16\ProPlus*.xrm-ms" set "_C16R=1"
 if %winbuild% GEQ 9200 if defined _C16R (
 echo.
-echo ## Notice ##
+echo ## 通知 ##
 echo.
-echo To make sure Office programs do not show a non-genuine banner,
-echo please run the activation option once, and don't uninstall afterward.
+echo 确保 Office 程序没有非正版的横幅通知,
+echo 请运行一次激活选项，之后不要卸载.
 echo __________________________________________________________________________________________
 )
 
@@ -7993,54 +7993,54 @@ echo ___________________________________________________________________________
 if defined _unattended exit /b
 
 echo.
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 
 :clearstuff
 
 reg query "%key%" /f Path /s | find /i "\Activation-Renewal" >nul && (
-echo Deleting [Task] Activation-Renewal
+echo 删除 [计划任务] Activation-Renewal
 schtasks /delete /tn Activation-Renewal /f %nul%
 )
 
 reg query "%key%" /f Path /s | find /i "\Activation-Run_Once" >nul && (
-echo Deleting [Task] Activation-Run_Once
+echo 删除 [计划任务] Activation-Run_Once
 schtasks /delete /tn Activation-Run_Once /f %nul%
 )
 
 reg query "%key%" /f Path /s | find /i "\Online_KMS_Activation_Script-Renewal" >nul && (
-echo Deleting [Task] Online_KMS_Activation_Script-Renewal
+echo 删除 [计划任务] Online_KMS_Activation_Script-Renewal
 schtasks /delete /tn Online_KMS_Activation_Script-Renewal /f %nul%
 )
 
 reg query "%key%" /f Path /s | find /i "\Online_KMS_Activation_Script-Run_Once" >nul && (
-echo Deleting [Task] Online_KMS_Activation_Script-Run_Once
+echo 删除 [计划任务] Online_KMS_Activation_Script-Run_Once
 schtasks /delete /tn Online_KMS_Activation_Script-Run_Once /f %nul%
 )
 
 If exist "%windir%\Online_KMS_Activation_Script\" (
-echo Deleting [Folder] %windir%\Online_KMS_Activation_Script\
+echo 删除 [文件夹] %windir%\Online_KMS_Activation_Script\
 rmdir /s /q "%windir%\Online_KMS_Activation_Script\" %nul%
 )
 
 if exist "%ProgramData%\Online_KMS_Activation.cmd" (
-echo Deleting [File] %ProgramData%\Online_KMS_Activation.cmd
+echo 删除 [文件] %ProgramData%\Online_KMS_Activation.cmd
 del /f /q "%ProgramData%\Online_KMS_Activation.cmd" %nul%
 )
 
 If exist "%ProgramData%\Online_KMS_Activation\" (
-echo Deleting [Folder] %ProgramData%\Online_KMS_Activation\
+echo 删除 [文件夹] %ProgramData%\Online_KMS_Activation\
 rmdir /s /q "%ProgramData%\Online_KMS_Activation\" %nul%
 )
 
 If exist "%ProgramData%\Activation-Renewal\" (
-echo Deleting [Folder] %ProgramData%\Activation-Renewal\
+echo 删除 [文件夹] %ProgramData%\Activation-Renewal\
 rmdir /s /q "%ProgramData%\Activation-Renewal\" %nul%
 )
 
 reg query "HKCR\DesktopBackground\shell\Activate Windows - Office" %nul% && (
-echo Deleting [Registry] HKCR\DesktopBackground\shell\Activate Windows - Office
+echo 删除 [注册表] HKCR\DesktopBackground\shell\Activate Windows - Office
 Reg delete "HKCR\DesktopBackground\shell\Activate Windows - Office" /f %nul%
 )
 
@@ -8120,26 +8120,26 @@ goto :RenDone
 
 echo __________________________________________________________________________________________
 echo.
-echo Files created:
+echo 创建文件:
 echo %_dest%\Activation_task.cmd
 echo %_dest%\Info.txt
 echo.
-(if defined ActTask (echo Scheduled Tasks created:) else (echo Scheduled Task created:))
+(if defined ActTask (echo 已创建计划任务:) else (echo 已创建过计划任务:))
 echo \Activation-Renewal [Weekly]
 if defined ActTask (echo \Activation-Run_Once)
 echo __________________________________________________________________________________________
 echo.
-echo Info:
-echo Activation will be renewed every week if the Internet connection is found.
+echo 信息:
+echo 如果联网,则一周激活一次.
 echo __________________________________________________________________________________________
 echo.
 if defined ActTask (
-call :_color %Green% "Renewal and Activation Tasks were successfully created."
+call :_color %Green% "已成功创建续订和激活任务."
 ) else (
-call :_color %Green% "Renewal Task was successfully created."
+call :_color %Green% "已成功创建续订任务."
 )
 echo.
-call :_color %Gray% "Make sure to run the Activation from the previous menu atleast once."
+call :_color %Gray% "确保最少选择过一次上个菜单中的激活."
 echo __________________________________________________________________________________________
 )
 
@@ -8150,7 +8150,7 @@ echo ___________________________________________________________________________
 if defined _unattended exit /b
 
 echo.
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 
@@ -8336,7 +8336,7 @@ echo ====== Error ======
 echo.
 echo This file is supposed to be run only by the scheduled task.
 echo.
-echo Press any key to exit
+echo 按任意键退出
 pause >nul
 exit /b
 )
@@ -8491,7 +8491,7 @@ echo Renewing KMS activation for all installed Volume products
 
 if not defined sppwid if not defined sppoid if not defined osppid (
 echo.
-echo No installed Volume Windows / Office product found
+echo 未检测到安装的 Volume Windows / Office 产品
 echo.
 echo Renewing KMS server
 call :_taskgetserv
@@ -9084,7 +9084,7 @@ if exist "%ProgramFiles%\Microsoft Office\Office15\ospp.vbs" (
 )
 setlocal EnableDelayedExpansion
 echo %line2%
-echo ***                   Windows Status                     ***
+echo ***                   Windows状态                     ***
 echo %line2%
 pushd "!_utemp!"
 copy /y %SystemRoot%\System32\slmgr.vbs . >nul 2>&1
@@ -9103,9 +9103,9 @@ set _sO16vbs=1
 echo.
 echo %line2%
 if %_sO15vbs% EQU 0 (
-echo ***              Office 2016 %_bit%-bit Status               ***
+echo ***              Office 2016 %_bit%-bit状态               ***
 ) else (
-echo ***               Office 2013/2016 Status                ***
+echo ***               Office 2013/2016状态                ***
 )
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
@@ -9118,9 +9118,9 @@ set _sO16vbs=1
 echo.
 echo %line2%
 if %_sO15vbs% EQU 0 (
-echo ***              Office 2016 32-bit Status               ***
+echo ***              Office 2016 32-bit状态              ***
 ) else (
-echo ***               Office 2013/2016 Status                ***
+echo ***               Office 2013/2016状态                ***
 )
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
@@ -9133,7 +9133,7 @@ for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Microsoft\Office\15.
 if exist "!office!\ospp.vbs" (
 echo.
 echo %line2%
-echo ***              Office 2013 %_bit%-bit Status               ***
+echo ***              Office 2013 %_bit%-bit状态               ***
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
 )
@@ -9143,7 +9143,7 @@ for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Wow6432Node\Microsof
 if exist "!office!\ospp.vbs" (
 echo.
 echo %line2%
-echo ***              Office 2013 32-bit Status               ***
+echo ***              Office 2013 32-bit状态               ***
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
 )
@@ -9154,7 +9154,7 @@ for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Microsoft\Office\14.
 if exist "!office!\ospp.vbs" (
 echo.
 echo %line2%
-echo ***              Office 2010 %_bit%-bit Status               ***
+echo ***              Office 2010 %_bit%-bit状态               ***
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
 )
@@ -9164,7 +9164,7 @@ for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Wow6432Node\Microsof
 if exist "!office!\ospp.vbs" (
 echo.
 echo %line2%
-echo ***              Office 2010 32-bit Status               ***
+echo ***              Office 2010 32-bit状态               ***
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
 )
@@ -9180,9 +9180,9 @@ set _sO16vbs=1
 echo.
 echo %line2%
 if %_sO15vbs% EQU 0 (
-echo ***              Office 2016-2021 C2R Status             ***
+echo ***              Office 2016-2021 C2R状态             ***
 ) else (
-echo ***                Office 2013-2021 Status               ***
+echo ***                Office 2013-2021状态               ***
 )
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
@@ -9195,9 +9195,9 @@ set _sO16vbs=1
 echo.
 echo %line2%
 if %_sO15vbs% EQU 0 (
-echo ***              Office 2016-2021 C2R Status             ***
+echo ***              Office 2016-2021 C2R状态             ***
 ) else (
-echo ***                Office 2013-2021 Status               ***
+echo ***                Office 2013-2021状态               ***
 )
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
@@ -9219,7 +9219,7 @@ if exist "%ProgramFiles%\Microsoft Office\Office15\ospp.vbs" (
 if exist "!office!\ospp.vbs" (
 echo.
 echo %line2%
-echo ***                Office 2013 C2R Status                ***
+echo ***                Office 2013 C2R状态                ***
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
 )
@@ -9238,14 +9238,14 @@ if exist "%ProgramFiles%\Microsoft Office\Office14\ospp.vbs" (
 if exist "!office!\ospp.vbs" (
 echo.
 echo %line2%
-echo ***                Office 2010 C2R Status                ***
+echo ***                Office 2010 C2R状态                ***
 echo %line2%
 cscript //nologo "!office!\ospp.vbs" /dstatus
 )
 
 :casVend
 echo.
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 
@@ -9304,7 +9304,7 @@ if %_cwmi% EQU 0 (
 echo:
 echo Error: wmic.exe is not responding in the system.
 echo:
-echo Press any key to go back...
+echo 按任意键返回...
 pause >nul
 exit /b
 )
@@ -9353,7 +9353,7 @@ if %winbuild% LSS 9200 call :casWpkey %ospp% %o15App% osppsvc ospp15
 )
 
 echo %line2%
-echo ***                   Windows Status                     ***
+echo ***                   Windows状态                     ***
 echo %line2%
 if not defined cW1nd0ws (
 echo.
@@ -9378,7 +9378,7 @@ if defined osppsvc goto :casWospp
 goto :casWend
 )
 echo %line2%
-echo ***                   Office Status                      ***
+echo ***                   Office状态                      ***
 echo %line2%
 set "_qr=%_zz7% %wspp% %_zz2% %_zz5%ApplicationID='%o15App%' and PartialProductKey is not null%_zz6% %_zz3% ID %_zz8%"
 for /f "tokens=2 delims==" %%# in ('%_qr%') do (
@@ -9395,7 +9395,7 @@ goto :casWend
 :casWospp
 if %verbose% EQU 1 (
 echo %line2%
-echo ***                   Office Status                      ***
+echo ***                   Office状态                      ***
 echo %line2%
 )
 set "_qr=%_zz7% %ospp% %_zz2% %_zz5%ApplicationID='%o15App%' and PartialProductKey is not null%_zz6% %_zz3% ID %_zz8%"
@@ -9456,7 +9456,7 @@ if %LicenseStatus% EQU 1 (
 set "License=Licensed"
 set "LicenseMsg="
 if %GracePeriodRemaining% EQU 0 (
-  if %winID% EQU 1 (set "ExpireMsg=The machine is permanently activated.") else (set "ExpireMsg=The product is permanently activated.")
+  if %winID% EQU 1 (set "ExpireMsg=这台机器已永久激活.") else (set "ExpireMsg=这个产品已永久激活.")
   ) else (
   set "LicenseMsg=%_mTag% activation expiration: %GracePeriodRemaining% minute(s) (%_gpr% day(s))"
   if defined _xpr set "ExpireMsg=%_mTag% activation will expire %_xpr%"
@@ -9561,7 +9561,7 @@ exit /b
 :casWend
 if %_Identity% EQU 1 if %_prsh% EQU 1 (
 echo %line2%
-echo ***                  Office vNext Status                 ***
+echo ***                  Office vNext状态                 ***
 echo %line2%
 setlocal EnableDelayedExpansion
 %_psc% "$f=[IO.File]::ReadAllText('!_batp!') -split ':vNextDiag\:.*';iex ($f[1])"
@@ -9570,7 +9570,7 @@ echo %line3%
 echo.
 )
 echo.
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 
@@ -9820,21 +9820,21 @@ echo:
 echo:
 echo:       _______________________________________________________________
 echo:                                                   
-echo:             [1] ReadMe  
+echo:             [1] 关于  
 echo:             ___________________________________________________      
 echo:                                                                      
-echo:             [2] Dism RestoreHealth                                   
-echo:             [3] SFC Scannow                                          
+echo:             [2] Dism RestoreHealth(修复Windows 10映像)                                   
+echo:             [3] SFC Scannow(扫描并修复系统文件)                                          
 echo:                          
-echo:             [4] Rebuild Licensing Tokens
-echo:             [5] Clear Office vNext License
+echo:             [4] 重新生成 Tokens.dat 文件
+echo:             [5] 清除Office vNext许可证
 echo:             ___________________________________________________      
 echo:                                                                      
-echo:             [6] Solution: Office is not genuine banner
-echo:             [0] Go Back
+echo:             [6] 解决方案: Office出现盗版横幅
+echo:             [0] 返回
 echo:       _______________________________________________________________
 echo:          
-call :_color2 %_White% "            " %_Green% "Enter a menu option in the Keyboard :"
+call :_color2 %_White% "            " %_Green% "按下数字按键选择菜单选项 :"
 choice /C:1234560 /N
 set _erl=%errorlevel%
 
@@ -9868,9 +9868,9 @@ if not defined _int (for /f "delims=[] tokens=2" %%# in ('ping -n 1 %%a') do if 
 
 echo:
 if defined _int (
-echo      Checking Internet Connection  [Connected]
+echo      检查Internet连接  [连接]
 ) else (
-call :_color2 %_White% "     " %Red% "Checking Internet Connection  [Not connected]"
+call :_color2 %_White% "     " %Red% "检查Internet连接  [未连接]"
 )
 
 echo %line%
@@ -9886,7 +9886,7 @@ call :_color2 %_White% "     - " %Gray% "Make sure the Windows update is properl
 echo:
 echo %line%
 echo:
-choice /C:29 /N /M ">    [9] Continue [2] Go back : "
+choice /C:29 /N /M ">    [9] Continue [2] 返回 : "
 if %errorlevel%==1 goto at_menu
 
 cls
@@ -9939,7 +9939,7 @@ echo      restarting the PC after each time to completely fix everything that it
 echo:   
 echo %line%
 echo:
-choice /C:29 /N /M ">    [9] Continue [2] Go back : "
+choice /C:29 /N /M ">    [9] Continue [2] 返回 : "
 if %errorlevel%==1 goto at_menu
 
 cls
@@ -9990,7 +9990,7 @@ echo          - KMS option activated Office but Office activation page is not sh
 echo:   
 echo %line%
 echo:
-choice /C:29 /N /M ">    [9] Continue [2] Go back : "
+choice /C:29 /N /M ">    [9] Continue [2] 返回 : "
 if %errorlevel%==1 goto at_menu
 
 cls
@@ -10076,7 +10076,7 @@ call :_color2 %_White% "      - " %Red% "Apply it only when it is necessary."
 echo:
 echo %line%
 echo:
-choice /C:29 /N /M ">    [9] Continue [2] Go back : "
+choice /C:29 /N /M ">    [9] Continue [2] 返回 : "
 if %errorlevel%==1 goto at_menu
 
 
@@ -10114,9 +10114,9 @@ echo Reinstalling System Licenses [slmgr /rilc]...
 cscript //nologo %windir%\system32\slmgr.vbs /rilc %nul%
 if %errorlevel% NEQ 0 cscript //nologo %windir%\system32\slmgr.vbs /rilc %nul%
 if %errorlevel% EQU 0 (
-echo [Successful]
+echo [完成]
 ) else (
-call :_color %Red% "[Failed]"
+call :_color %Red% "[失败]"
 )
 
 call :scandat check
@@ -10290,7 +10290,7 @@ echo:
 ) else (
 echo:
 call :_color %_Yellow% "A Window will popup, in that Window you need to select Repair Option..."
-call :_color %_Yellow% "Press any key to continue..."
+call :_color %_Yellow% "按任意键继续..."
 echo:
 pause >nul
 )
@@ -10343,7 +10343,7 @@ call :_color %Green% "Finished"
 echo:
 echo %line%
 echo:
-call :_color %_Yellow% "Press any key to go back..."
+call :_color %_Yellow% "按任意键返回..."
 pause >nul
 goto :at_menu
 
@@ -10352,7 +10352,7 @@ goto :at_menu
 :at_done
 
 echo:
-echo Press any key to go back...
+echo 按任意键返回...
 pause >nul
 exit /b
 
@@ -10568,7 +10568,7 @@ echo Note: Difference Found In SKU Value- WMI:%wmiSKU% Reg:%regSKU%
 echo       Restart the system to resolve it
 echo:
 )
-call :dk_color %_Green% "Press [1] to Continue or [2] to Go back"
+call :dk_color %_Green% "按 [1] 继续 或 [2] 返回"
 choice /C:21 /N
 if %errorlevel%==1 exit /b
 cls
@@ -10594,7 +10594,7 @@ echo:
 echo [%winos% ^| SKU:%osSKU% ^| %winbuild%]
 echo Installing %_chan% [%key%]
 echo:
-call :dk_color %Green% "[Successful]"
+call :dk_color %Green% "[完成]"
 ) else (
 %eline%
 echo [%winos% ^| SKU:%osSKU% ^| %winbuild%]
@@ -10611,7 +10611,7 @@ if not defined applist echo Not Respoding: %e_wmispp%
 
 echo:
 if %_unattended%==1 timeout /t 2 & exit /b
-call :dk_color %_Yellow% "Press any key to go back..."
+call :dk_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 
@@ -10813,7 +10813,7 @@ set targetedition!counter!=%%A
 
 %line%
 echo:
-echo [0]  Go back
+echo [0]  返回
 echo:
 call :dk_color %_Green% "Enter option number in keyboard, and press "Enter":"
 set /p inpt=
@@ -10900,7 +10900,7 @@ call :dk_color %Red% "But in that case you must manually reboot the system."
 echo:
 call :dk_color %Magenta% "Important - Save your work before continue, system will auto reboot."
 echo:
-choice /C:21 /N /M "[1] Continue [2] Go back : "
+choice /C:21 /N /M "[1] Continue [2] 返回 : "
 if !errorlevel!==1 exit /b
 )
 
@@ -10919,7 +10919,7 @@ if !error_code! NEQ 0 set "error_code=[0x!=ExitCode!]"
 
 if !error_code! EQU 0 (
 call :dk_refresh
-call :dk_color %Green% "[Successful]"
+call :dk_color %Green% "[完成]"
 echo:
 call :dk_color %Gray% "Reboot is required to properly change the Edition."
 ) else (
@@ -10979,7 +10979,7 @@ call :dk_color %Magenta% "Make sure to restart the system."
 :ced_done
 
 echo:
-call :dk_color %_Yellow% "Press any key to go back..."
+call :dk_color %_Yellow% "按任意键返回..."
 pause >nul
 exit /b
 
@@ -11109,7 +11109,7 @@ exit /b
 
 :MASend
 echo:
-echo Press any key to exit...
+echo 按任意键退出...
 pause >nul
 exit /b
 
