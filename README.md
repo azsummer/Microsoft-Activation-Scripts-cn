@@ -1,36 +1,38 @@
 ## Microsoft Activation Scripts (MAS):
 
-A Windows and Office activator using HWID / KMS38 / Online KMS activation methods, with a focus on open-source code and fewer antivirus detections.
+使用HWID/KMS38/Online KMS激活方法的Windows和Office激活器，重点在于开源代码和更少的防病毒检测。
 
-## Download / How to use it?
+## 怎么下载/如何使用?
 
-### Method 1 - PowerShell
+### 方式 1 - PowerShell
 
--   On Windows 10/11, right-click on the windows start menu and select PowerShell or Terminal.
--   Copy-paste the below code and press enter\
+-   在Windows10/11上, 右键单击Windows开始菜单并选择PowerShell或终端.
+-   复制粘贴以下代码并按enter\
     `irm https://massgrave.dev/get | iex`
--   You will see the activation options, and follow onscreen instructions.
--   That's all.
+-   你会看到激活菜单, 按屏幕上的说明操作即可.
+-   没了.
 
-### Method 2 - Traditional
+### 方式 2 - 下载脚本
 
--   Download the file named `MAS_1.6_Password_1234.7z` from [here](https://github.com/massgravel/Microsoft-Activation-Scripts/releases)
--   Extract this file with a 3rd party archive manager, such as [7zip](https://www.7-zip.org/download.html)
--   Password is `1234`
--   In the extracted folder, find the folder named `All-In-One-Version`
--   Run the file named `MAS_AIO.cmd`
--   You will see the activation options, and follow onscreen instructions.
--   That's all.
+-   下载文件名为 `MAS_1.6_Password_1234.7z`的文件 点击 [这里](https://github.com/massgravel/Microsoft-Activation-Scripts/releases)
+-   使用第三方解压软件提取此文件, 比如 [7zip](https://www.7-zip.org/download.html)
+-   密码是 `1234`
+-   在解压后的文件夹里, 找到名为 `All-In-One-Version`的文件夹
+-   运行 `MAS_AIO.cmd`
+-   你会看到激活菜单, 按屏幕上的说明操作即可.
+-   没了.
 
 
 ```
-Latest Version: 1.6
-Release date: 25-July-2022
+最新版本: 1.6
+发布日期: 2022年7月25日
+汉化日期: 2022年10月18日
+
 ```
 
-### For more details, check Homepage:  https://massgrave.dev/
+### 有关更多详细信息，请查看主页:  https://massgrave.dev/
 
-### [Download Original Windows & Office](https://massgrave.dev/genuine-installation-media.html)
+### [下载原版Windows & Office](https://massgrave.dev/genuine-installation-media.html)
 
    <a href="https://discord.gg/gjJEfq7ux8">
   <img src="https://discordapp.com/api/guilds/746721520931569757/widget.png?style=banner3" />
@@ -39,6 +41,6 @@ Release date: 25-July-2022
 
 ---
 
-Made with Love ❤️
+用爱发电 ❤️ 汉化不包括作者信息内容
 
 
